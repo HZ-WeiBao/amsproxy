@@ -62,7 +62,8 @@
     <br>
     <p class="text-muted">
         <span class="glyphicon glyphicon-info-sign"></span>
-        首次登陆时间变快了~~<br>
-        最近使用人数比较多,验证码还是不启用了~
+        <!--首次登陆时间变快了~~<br>
+        最近使用人数比较多,验证码还是不启用了~-->
+        用不了,至于什么时候恢复我也不知道,之前登录过的可以查看缓存结果~<br>
     </p>
 </form>
