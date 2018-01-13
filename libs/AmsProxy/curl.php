@@ -11,13 +11,14 @@ class curl_request {
      */
     public $headers = array(
         'User-Agent' => 'Mozilla/5.0 (compatible; MSIE 7.0; Windows NT 6.1; Trident/6.0)',
+        'Expect' => ''
     );
 
     public function __construct() {
         $this->curl = curl_init();
         curl_setopt($this->curl, CURLOPT_RETURNTRANSFER, true);
         curl_setopt($this->curl, CURLOPT_HEADER, true);
-        //
+        curl_setopt($this->curl, CURLOPT_TIMEOUT, 3);
         if(CURL_DEBUG){
             curl_setopt($this->curl,CURLOPT_PROXY,'127.0.0.1:8887');//设置代理服务器
             curl_setopt($this->curl,CURLOPT_SSL_VERIFYPEER,0);//若PHP编译时不带openssl则需要此行
