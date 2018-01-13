@@ -42,7 +42,7 @@ class ProxyController extends BaseController {
 
         if (!$this->isLogged())
             $this->notLoggedHandler();
-        
+
         global $config;
         if($config['params']['useCaptcha']){
             if(isset($_GET['refreshed']))
@@ -61,7 +61,7 @@ class ProxyController extends BaseController {
 
                     $this->notLoggedHandler($lastsid,$lastpwd,'更新数据需要登陆一下下~');
                 }
-            
+
             if(isset($_GET['referer'])){
                 $this->redirect(urldecode($_GET['referer']).'?refreshed=true');
             }
@@ -202,7 +202,7 @@ class ProxyController extends BaseController {
     public function get_classSchedule() {
         return $this->AmsProxy()->invoke('getClassSchedule');
     }
-    
+
     /**
      * @return array
      */
@@ -277,7 +277,7 @@ class ProxyController extends BaseController {
     public function checkCache_commonFields($field){
         return $this->common->{$field};
     }
-    
+
     public function getCache($field){
         if(file_exists($this->cacheUrl($field)))
             return file_get_contents($this->cacheUrl($field));
@@ -345,9 +345,23 @@ class ProxyController extends BaseController {
         return ( $month <= 2 || ($month >= 6) ) ? '0' : '1';
     }
     public function lastXN(){
+        $month = (int) date('m');
+        if(
+            ($month == 1 || $month == 2) ||
+            ($month == 6 || $month == 7)
+        ){
+            return $this->getXN();
+        }
         return (!$this->lastXQ())? $this->getXN() : $this->getXN() -1;
     }
     public function lastXQ(){
+        $month = (int) date('m');
+        if(
+            ($month == 1 || $month == 2) ||
+            ($month == 6 || $month == 7)
+        ){
+            return $this->getXQ();
+        }
         return ($this->getXQ()) ? 0 : 1 ;
     }
 }

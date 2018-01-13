@@ -37,7 +37,7 @@ class AmsProxy {
      */
     public function __construct($session=null) {
         $this->curl = new curl_request;
-        $this->curl->setTimeout(2);
+        $this->curl->setTimeout(4);
         $this->baseUrl = Yii::app()->params['baseUrl'];
         $this->schoolcode = Yii::app()->params['schoolcode'];
         if($session != null)

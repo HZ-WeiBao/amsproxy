@@ -95,9 +95,23 @@ class __base__ {
         return ( $month <= 2 || ($month >= 6) ) ? '0' : '1';
     }
     public function lastXN(){
+        $month = (int) date('m');
+        if(
+            ($month == 1 || $month == 2) ||
+            ($month == 6 || $month == 7)
+        ){
+            return $this->getXN();
+        }
         return (!$this->lastXQ())? $this->getXN() : $this->getXN() -1;
     }
     public function lastXQ(){
+        $month = (int) date('m');
+        if(
+            ($month == 1 || $month == 2) ||
+            ($month == 6 || $month == 7)
+        ){
+            return $this->getXQ();
+        }
         return ($this->getXQ()) ? 0 : 1 ;
     }
 }

@@ -81,7 +81,7 @@ class BaseController extends CController {
                 // curl_setopt($ch,CURLOPT_PROXY,'127.0.0.1:8887');//设置代理服务器
                 // curl_setopt($ch,CURLOPT_SSL_VERIFYPEER,0);//若PHP编译时不带openssl则需要此行
                 $captcha = curl_exec($ch);
-                curl_close($ch); 
+                curl_close($ch);
 
                 // $error = $captcha;
                 if(strlen($captcha) == 4)
@@ -267,8 +267,8 @@ class BaseController extends CController {
 
     /**
      * 计算目标日期距离开学经过了多少周，默认使用当前日期
-     * 
-     * @param string $date 
+     *
+     * @param string $date
      * @return int
      */
     public function weekNumber($date=null) {

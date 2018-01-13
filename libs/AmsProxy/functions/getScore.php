@@ -15,7 +15,7 @@ class getScore extends __base__ {
                 'sel_xq'=>$this->lastXQ(),
                 'btn_search'=>'%BC%EC%CB%F7',
                 'SelXNXQ'=>'2',//0入学以来1学年2学期
-                'zfx_flag'=>'0',
+                'zfx_flag'=>'0',//0主修 1辅修
                 'zxf'=>'0'
             )
         );//还是要发一下请求的
